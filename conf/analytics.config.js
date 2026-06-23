@@ -28,7 +28,10 @@ module.exports = {
     process.env.NEXT_PUBLIC_SEO_GOOGLE_SITE_VERIFICATION || '', // Remove the value or replace it with your own google site verification code
 
   SEO_BAIDU_SITE_VERIFICATION:
-    process.env.NEXT_PUBLIC_SEO_BAIDU_SITE_VERIFICATION || 'codeva-WVsVNsZgJB', // 百度站长平台验证码（www.qhj8=8.com）
+    process.env.NEXT_PUBLIC_SEO_BAIDU_SITE_VERIFICATION || 'codeva-WVsVNsZgJB', // 百度站长平台验证码（www.qjk8.com）
+
+  SEO_SOGOU_SITE_VERIFICATION:
+    process.env.NEXT_PUBLIC_SEO_SOGOU_SITE_VERIFICATION || 'D6ianIAIGr', // 搜狗站长平台验证码（www.qjk8.com）
 
   // 微软 Clarity 站点分析
   CLARITY_ID: process.env.NEXT_PUBLIC_CLARITY_ID || null, // 只需要复制Clarity脚本中的ID部分，ID是一个十位的英文数字组合
