@@ -59,7 +59,7 @@ const BLOG = {
   CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || true, // 支持Menu类型的菜单，替代了3.12版本前的Page类型
 
   // 文章列表相关设置
-  CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // 是否允许复制页面内容 默认允许，如果设置为false、则全栈禁止复制内容。
+  CAN_COPY: process.env.NEXT_PUBLIC_CAN_COPY || true, // 是否允许复制页面内容，默认允许；可被文章属性 CAN_COPY / ext.CAN_COPY 覆盖。
 
   ...require('./conf/techgrow.config'), // 公众号导流插件（TechGrow）
 
@@ -71,6 +71,14 @@ const BLOG = {
   GREETING_WORDS:
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
     'Hi，欢迎来到趣集客🎉,让我们共同分享有趣！',
+
+  // 欢迎语打字效果类型速度
+  GREETING_WORDS_TYPE_SPEED:
+    process.env.NEXT_PUBLIC_GREETING_WORDS_TYPE_SPEED || 200,
+
+  // 欢迎语打字效果回退速度
+  GREETING_WORDS_BACK_SPEED:
+    process.env.NEXT_PUBLIC_GREETING_WORDS_BACK_SPEED || 100,
 
   // uuid重定向至 slug
   UUID_REDIRECT: process.env.UUID_REDIRECT || false

@@ -1,4 +1,4 @@
-# 全站功能与配置索引（4.9.5.x）
+# 全站功能与配置索引（4.10.2）
 
 配置源文件：`blog.config.js` 聚合 `conf/*.config.js`。环境变量多为 `NEXT_PUBLIC_<键名>`（服务端专用键无此前缀，见各文件注释）。
 
@@ -16,7 +16,7 @@
 | `PSEUDO_STATIC` | URL 以 `.html` 结尾 |
 | `ENABLE_RSS` | RSS 生成 |
 | `CUSTOM_MENU` | 使用 Menu/SubMenu 导航 |
-| `CAN_COPY` | 是否允许复制正文 |
+| `CAN_COPY` | 是否允许复制正文；文章可用 `CAN_COPY` 或 `ext.CAN_COPY` 单独覆盖 |
 | `GREETING_WORDS` | 欢迎语打字（部分主题） |
 | `LAYOUT_SIDEBAR_REVERSE` | 侧栏左右反转（hexo/next 等） |
 | `UUID_REDIRECT` | UUID 重定向到 slug |
