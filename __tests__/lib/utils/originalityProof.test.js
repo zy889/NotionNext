@@ -1,6 +1,7 @@
 /** @jest-environment node */
 
 import {
+  applyOriginalityProofRecord,
   createOriginalityProof,
   formatOriginalityProofText,
   isOriginalityProofEnabled
@@ -117,5 +118,27 @@ describe('originalityProof', () => {
         'Provider: local'
       ].join('\n')
     )
+  })
+
+  it('applies a public manifest record to a local proof', () => {
+    expect(
+      applyOriginalityProofRecord(
+        {
+          hash: 'local-hash',
+          proofTime: '2026-07-15',
+          provider: 'local'
+        },
+        {
+          hash: 'manifest-hash',
+          proofUrl: '/proofs/originality.json',
+          provider: 'manifest'
+        }
+      )
+    ).toMatchObject({
+      hash: 'manifest-hash',
+      proofTime: '2026-07-15',
+      proofUrl: '/proofs/originality.json',
+      provider: 'manifest'
+    })
   })
 })

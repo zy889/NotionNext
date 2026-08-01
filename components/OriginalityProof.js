@@ -13,6 +13,7 @@ const labels = {
   zh: {
     title: '原创存证',
     external: '外部凭证',
+    manifest: '公开清单',
     local: '本地哈希',
     algorithm: '算法',
     time: '时间',
@@ -26,6 +27,7 @@ const labels = {
   en: {
     title: 'Originality proof',
     external: 'External proof',
+    manifest: 'Public manifest',
     local: 'Local hash',
     algorithm: 'Algorithm',
     time: 'Time',
@@ -46,7 +48,12 @@ export default function OriginalityProof({ proof }) {
     ? labels.zh
     : labels.en
   const copyText = formatOriginalityProofText(proof)
-  const providerLabel = proof.provider === 'external' ? t.external : t.local
+  const providerLabel =
+    proof.provider === 'external'
+      ? t.external
+      : proof.provider === 'manifest'
+        ? t.manifest
+        : t.local
   const shortHash = `${String(proof.hash).slice(0, 12)}...`
   const copyProof = () => {
     if (!navigator.clipboard) {

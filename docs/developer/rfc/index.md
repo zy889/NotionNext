@@ -14,4 +14,5 @@
 
 ## 已有 RFC
 
+- [原创存证自动公开清单任务](./2026-originality-proof-auto-manifest.md)
 - [原创存证体验优化任务](./2026-originality-proof-ux.md)
