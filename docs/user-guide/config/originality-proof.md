@@ -77,6 +77,37 @@ ORIGINALITY_PROOF_AUTO_MANIFEST=true
 4. workflow 会执行构建并自动提交 `public/proofs/originality.json`。
 5. 之后文章页会自动显示 `原创存证 · 公开清单 · 短哈希`，不需要在 Notion 里逐篇填写 `proof` 字段。
 
+生成后的清单大致如下：
+
+```json
+{
+  "version": 1,
+  "proofs": [
+    {
+      "pageId": "notion-page-id",
+      "title": "我的原创文章",
+      "url": "https://example.com/article/my-original-post",
+      "algorithm": "SHA-256",
+      "hash": "5d41402abc4b2a76b9719d911017c592",
+      "proofTime": "2026-07-15T00:00:00.000Z",
+      "proofUrl": "/proofs/originality.json",
+      "provider": "manifest"
+    }
+  ]
+}
+```
+
+字段含义：
+
+| 字段 | 说明 |
+| --- | --- |
+| `pageId` | Notion 页面 ID，用于稳定匹配文章 |
+| `url` | 文章公开访问地址 |
+| `hash` | 当前文章内容版本的 SHA-256 |
+| `proofTime` | 优先使用文章的存证时间、最后编辑时间或发布时间 |
+| `proofUrl` | 默认指向公开清单本身 |
+| `provider` | `manifest` 表示来自 GitHub 公开清单 |
+
 本地也可以手动生成一次：
 
 ```bash
@@ -88,6 +119,16 @@ ORIGINALITY_PROOF_AUTO_MANIFEST=true yarn build
 ```powershell
 $env:ORIGINALITY_PROOF_AUTO_MANIFEST='true'; yarn build
 ```
+
+常见问题：
+
+| 现象 | 检查项 |
+| --- | --- |
+| workflow 直接跳过 | 确认 GitHub Actions 变量名是 `ORIGINALITY_PROOF_AUTO_MANIFEST`，值是 `true` |
+| 没有生成清单 | 确认构建时至少有已发布文章，并且文章能正常生成内容哈希 |
+| 清单生成但没有提交 | 确认 `Settings -> Actions -> General` 已允许 workflow 写入仓库 |
+| 页面仍显示本地哈希 | 确认最新清单已进入当前部署分支，并重新部署站点 |
+| 不想公开某篇文章 | 在该文章的 `proof` 字段中填写 `false` |
 
 ### 没有外部凭证时按单篇开启
 
@@ -135,6 +176,7 @@ NotionNext 会读取文章标题、页面 ID、作者、文章 URL 和正文纯�
 - 点击徽章后能看到完整哈希。
 - 填写 `proofUrl` 时能打开外部凭证链接。
 - 开启自动公开清单时，仓库中能看到 `public/proofs/originality.json`。
+- 打开 `public/proofs/originality.json`，能看到对应文章的 `url`、`hash` 和 `provider: "manifest"`。
 - 点击“复制证据”后按钮文案变为“已复制”；如果浏览器不支持剪贴板，按钮会提示“请手动复制”。
 
 ## 外部凭证字段

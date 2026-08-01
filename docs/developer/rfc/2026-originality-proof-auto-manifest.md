@@ -30,6 +30,7 @@
 - [x] manifest helper 有单测覆盖。
 - [x] 原创存证 helper 能应用公开清单记录。
 - [x] VitePress 教程包含全自动开启步骤和限制。
+- [x] VitePress 教程包含 manifest JSON 示例和常见问题排查。
 - [x] workflow 默认不会在未设置变量时运行。
 
 ## 本地验证

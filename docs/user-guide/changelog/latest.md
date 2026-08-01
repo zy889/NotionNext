@@ -21,6 +21,7 @@
 - 新增原创存证教程，说明 `NEXT_PUBLIC_ORIGINALITY_PROOF_ENABLE`、Notion `proof` / `proofTime` / `proofHash` / `proofUrl` 字段，以及本地内容哈希的证明边界。
 - 原创存证展示改为紧凑徽章，可展开查看详情并一键复制证据文本。
 - 原创存证新增可选 GitHub 自动公开清单模式，构建时可生成 `public/proofs/originality.json`，用于公开保存文章哈希证据。
+- 原创存证教程补充自动清单 JSON 示例、字段说明和 workflow 常见问题排查。
 
 ### 升级说明
 
