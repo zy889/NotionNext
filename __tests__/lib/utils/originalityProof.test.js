@@ -2,6 +2,7 @@
 
 import {
   createOriginalityProof,
+  formatOriginalityProofText,
   isOriginalityProofEnabled
 } from '@/lib/utils/originalityProof'
 
@@ -96,5 +97,25 @@ describe('originalityProof', () => {
 
     expect(proof.proofUrl).toBe('https://proof.example/ext')
     expect(proof.provider).toBe('external')
+  })
+
+  it('formats copyable proof evidence', () => {
+    expect(
+      formatOriginalityProofText({
+        title: 'Hello',
+        url: 'https://example.com/article/hello',
+        algorithm: 'SHA-256',
+        hash: 'abc',
+        provider: 'local'
+      })
+    ).toBe(
+      [
+        'Title: Hello',
+        'URL: https://example.com/article/hello',
+        'Algorithm: SHA-256',
+        'Hash: abc',
+        'Provider: local'
+      ].join('\n')
+    )
   })
 })

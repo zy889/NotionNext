@@ -11,3 +11,7 @@
 ## 模板
 
 - [TEMPLATE.md](./TEMPLATE.md)
+
+## 已有 RFC
+
+- [原创存证体验优化任务](./2026-originality-proof-ux.md)
